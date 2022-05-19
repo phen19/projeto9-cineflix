@@ -1,6 +1,22 @@
-import film2067 from "./images/2067.png"
-import enola from "./images/enola.png"
+import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 export default function Container() {
+
+    const [films, setFilms] = useState([]);
+
+    useEffect(() => {
+        const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
+
+        requisicao.then(resposta =>{
+                setFilms(resposta.data);
+        });
+
+
+    },[]);
+
+
+
     return (
         <>
             <div className="container">
@@ -8,30 +24,14 @@ export default function Container() {
                         <p>Selecione o filme</p>
                     </div>
                     <div className ="content">
+                       {films.map(film => 
                         <div className="film">
-                            <img src= {film2067} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {enola} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {film2067} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {enola} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {film2067} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {enola} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {film2067} alt="Logo" />
-                        </div>
-                        <div className="film">
-                            <img src= {enola} alt="Logo" />
-                        </div>
+                            <Link
+                                to= {`/sessoes/${film.id}`}
+                            >
+                            <img src= {film.posterURL} alt={film.title} />
+                            </Link>
+                        </div> )}
                     </div>
                 </div>
         </>

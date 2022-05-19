@@ -52,6 +52,11 @@
     background-color: #FFFFFF;
 }
 
+.film img{
+    width: 129px;
+    height: 193px;
+}
+
 .sessions{
     width: 375px;
     padding-left: 24px;
