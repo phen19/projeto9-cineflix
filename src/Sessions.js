@@ -5,6 +5,7 @@ import axios from 'axios';
 import enola from "./images/enola.png"
 
 
+
 export default function Sessions(){
 
     const  { filmID }  = useParams();
@@ -20,6 +21,13 @@ export default function Sessions(){
     },[]);
     
     
+    if (sessions === [] || sessions === null || sessions.length === 0) {
+        return (
+          <>
+            <p>LOADING SESSOES...</p>
+          </>
+        );
+      } else {
     return(
         <>
         <div className="container">
@@ -27,16 +35,18 @@ export default function Sessions(){
                 <p>Selecione o Horario</p>
             </div>
                <div className="sessions">
-                   {sessions.title} 
-                    {/*sessions.days.map(({session},key) => <p>{session.weekday}</p>)*/}
+                   
+                    {sessions.days.map((session) => (<><p key={session.id}>{session.weekday} - {session.date}</p>
+                    <div className="showtime">{session.showtimes.map((showtime) => <Link to={`/sessao/${showtime.id}`}><button id={showtime.id}>{showtime.name}</button></Link>)}</div>
+                    </>))}
                 </div> 
         </div>
         <div className="footer">
             <div className="film">
-            <img src={enola} alt="Logo" />
+            <img src={sessions.posterURL} alt="porster" />
             </div>
         <div className=" info">
-        <p>Enola Holmes</p>
+        <p>{sessions.title}</p>
         </div>
         
         </div>
@@ -44,4 +54,5 @@ export default function Sessions(){
 
     )
 
+}
 }

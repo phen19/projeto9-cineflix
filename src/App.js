@@ -14,8 +14,8 @@ export default function App() {
                 <Header />
                 <Routes>
                    <Route path ="/" element={<Container />}/>
-                   <Route path="/sessoes/:filmID" element={<Sessions />}/>
-                    {/*<Seats />*/}
+                   <Route path="/filme/:filmID" element={<Sessions />}/>
+                   <Route path="/sessao/:sessionID" element={<Seats />}/>
                     {/*<Success/>*/}
                 </Routes>
             </BrowserRouter>

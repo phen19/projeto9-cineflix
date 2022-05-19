@@ -27,7 +27,7 @@ export default function Container() {
                        {films.map(film => 
                         <div className="film">
                             <Link
-                                to= {`/sessoes/${film.id}`}
+                                to= {`/filme/${film.id}`}
                             >
                             <img src= {film.posterURL} alt={film.title} />
                             </Link>
