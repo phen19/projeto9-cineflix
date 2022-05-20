@@ -20,6 +20,7 @@
     align-items: center;
    
     flex-direction: column;
+    margin-bottom: 140px;
 }
 
 .title{
@@ -77,7 +78,7 @@
     border-radius: 3px;
     border:0;
     margin-right: 8px;
-    margin-bottom: 22px;
+    margin-bottom: 50px;
 }
 
 .footer > .film{
@@ -213,6 +214,9 @@
 
 .order{
     margin-top: 57px;
+    margin-bottom: 140px;
+    display: flex;
+    justify-content: center;
 }
 
 .successInfo{

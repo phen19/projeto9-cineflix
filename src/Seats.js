@@ -30,7 +30,7 @@ function clickSeat(isAvailable, seatID, selected) {
         setSelection(newArr);
       }
     }else{
-        alert("Esse assento nao esta disponivel")
+        alert("Esse assento não está disponível")
     }
   }
 }
@@ -85,15 +85,17 @@ export default function Seats(){
                         <p>Indisponivel</p>
                     </div>
                 </div>
+                <form onSubmit={(e) => buttonSuccess(selection, name, cpf, e.preventDefault())}>
                 <div className="orderInfo">
                     <p>Nome do comprador:</p>
-                    <input placeholder="Digite seu nome:" onChange={(e) => setName(e.target.value)}/>
+                    <input placeholder="Digite seu nome:" onChange={(e) => setName(e.target.value)} required/>
                     <p>CPF do comprador:</p>
-                    <input placeholder="Digite seu CPF:" onChange={(e) => setCPF(e.target.value)}/>
+                    <input placeholder="Digite seu CPF:" onChange={(e) => setCPF(e.target.value)} pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required/>
                 </div>
                 <div className="order">
-                    <button onClick={() => buttonSuccess(selection, name, cpf)}>Reservar o(s) assentos(s)</button>
+                    <button type="submit">Reservar o(s) assentos(s)</button>
                 </div>
+                </form>
         </div>
         <div className="footer">
             <div className="film">
@@ -112,6 +114,8 @@ export default function Seats(){
 }
 
 function buttonSuccess(selection, name, cpf) {
+
+
     let data = { ids: selection, nome: name, cpf: cpf };
     let dataNavigate = {
       selection: selection,
@@ -130,4 +134,5 @@ function buttonSuccess(selection, name, cpf) {
     });
     requisicaoPost.catch((response) => console.log(response));
 }
+   
 }
