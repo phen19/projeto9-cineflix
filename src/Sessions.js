@@ -36,7 +36,7 @@ export default function Sessions(){
                <div className="sessions">
                    
                     {sessions.days.map((session) => (<><p key={session.id}>{session.weekday} - {session.date}</p>
-                    <div className="showtime">{session.showtimes.map((showtime) => <Link to={`/sessao/${showtime.id}`}><button id={showtime.id}>{showtime.name}</button></Link>)}</div>
+                    <div className="showtime">{session.showtimes.map((showtime) => <Link to={`/sessao/${showtime.id}`}><button key={showtime.id}>{showtime.name}</button></Link>)}</div>
                     </>))}
                 </div> 
         </div>

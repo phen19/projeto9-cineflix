@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Success() {
     const location = useLocation();
-  console.log(location);
-  const { name, cpf, date, title, session, selection } = location.state;
+ 
+  const { name, cpf, date, title, session, selection, seatName } = location.state;
     return (
         <>
         <div className="container">
@@ -17,7 +17,7 @@ export default function Success() {
                 </div>
                 <div className="successInfo">
                     <p><strong>Ingressos</strong></p>
-                    {selection.map((id)=> <p>Assento {id}</p>)}
+                    {seatName.map((name, index)=> <p key={index}>Assento {name}</p>)}
                 </div>
                 <div className="successInfo">
                     <p><strong>Comprador</strong></p>

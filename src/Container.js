@@ -24,8 +24,8 @@ export default function Container() {
                         <p>Selecione o filme</p>
                     </div>
                     <div className ="content">
-                       {films.map(film => 
-                        <div className="film">
+                       {films.map((film,index) => 
+                        <div key={index} className="film">
                             <Link
                                 to= {`/filme/${film.id}`}
                             >
