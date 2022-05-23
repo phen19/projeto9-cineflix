@@ -32,7 +32,7 @@ function clickSeat(isAvailable, name, seatID, selected) {
         let newArr2 = seatName.filter(
           (selectedName) => selectedName !== name
         );
-        setSelection(newArr2);
+        setSeatName(newArr2);
       }
     }else{
         alert("Esse assento não está disponível")
