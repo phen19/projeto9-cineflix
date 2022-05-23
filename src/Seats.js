@@ -29,7 +29,7 @@ function clickSeat(isAvailable, name, seatID, selected) {
           (selectedID) => selectedID !== seatID
         );
         setSelection(newArr);
-        let newArr2 = selection.filter(
+        let newArr2 = seatName.filter(
           (selectedName) => selectedName !== name
         );
         setSelection(newArr2);
